@@ -1,0 +1,26 @@
+{
+    "Users": [
+        {
+            "username": "steven",
+            "password": "12345"
+        }
+    ],
+
+    "Products": [
+        {
+            "name": "",
+            "productImage":"",
+            "description": "",
+            "price": 2000,
+            "UserId": 1,
+            "CategoryId": 1
+
+        }
+    ],
+
+    "Categories": [
+        {
+            "name": "Food"
+        }
+    ]
+}
