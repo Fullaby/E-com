@@ -20,6 +20,9 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER
       },
+      stock:{
+        type: Sequelize.INTEGER
+      },
       UserId: {
         type: Sequelize.INTEGER
       },

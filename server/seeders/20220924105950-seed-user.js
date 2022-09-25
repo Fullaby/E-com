@@ -1,5 +1,6 @@
 'use strict';
 const fs =require('fs');
+const { hashPass } = require('../helpers/bcrypt');
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
@@ -14,6 +15,7 @@ module.exports = {
      let data= JSON.parse(fs.readFileSync('./db.json', 'utf-8')).Users
      data.forEach((el)=>{
       el.createdAt=el.updatedAt= new Date()
+      el.password= hashPass(el.password)
      })
      await queryInterface.bulkInsert('Users', data)
   },
