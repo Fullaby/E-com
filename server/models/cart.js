@@ -16,8 +16,26 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Cart.init({
-    ProductId: DataTypes.INTEGER,
-    UserId: DataTypes.INTEGER
+    ProductId: {type: DataTypes.INTEGER,
+    allowNull: false,
+  validate:{
+    notNull:{
+      msg: 'ProductId is required'
+    },
+    notEmpty:{
+      msg: 'ProductId is required'
+    }
+  }},
+    UserId: {type: DataTypes.INTEGER,
+    allowNull: false,
+  validate:{
+    notNull:{
+      msg: 'UserId is required'
+    },
+    notEmpty:{
+      msg: 'UserId is required'
+    }
+  }}
   }, {
     sequelize,
     modelName: 'Cart',

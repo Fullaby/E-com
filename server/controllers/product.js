@@ -2,6 +2,29 @@ const { Op } = require('sequelize');
 const {Product,User,Category} =require('../models');
 class Controller{
 
+    static async showAllProductAdmin(req,res,next){
+        try {
+            const {search,category}= req.query
+            let where= {where:{
+                name:{
+                    [Op.iLike]: `%${search}%`
+                },
+                UserId: req.user.id
+            },include: [{model: User,attributes:{exclude:['password']}},{model: Category},]}
+
+            if(category){
+                where.where.CategoryId= category
+            }
+
+        //console.log(search);
+            let data = await Product.findAll(where)
+            res.status(200).json(data)
+
+        } catch (error) {
+            next(error);
+        }
+    }
+
     static async showAllProduct(req,res,next){
         try {
             const {search,category}= req.query
