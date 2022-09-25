@@ -2,15 +2,15 @@ const {User}= require('../models');
 const {comparePass}= require('../helpers/bcrypt');
 const {createToken}= require('../helpers/jwt');
 class Controller{
-    static async login (req,res){
+    static async login (req,res,next){
         try {
             const {username,password}= req.body
             let data= await User.findOne({where: {username}})
             let checkPass= comparePass(password, data.password)
             console.log(data);
-            if(!checkPass)throw{code: 1}
-            if(!username || !password)throw{code: 2}
-            if(!data)throw{code:3}
+            // if(!checkPass)throw{code: 1}
+            // if(!username || !password)throw{code: 1}
+            // if(!data)throw{code:1}
 
             const payload= {
                 id: data.id
@@ -21,11 +21,11 @@ class Controller{
                 access_token: token
             })
         } catch (error) {
-            console.log(error);
+            next(error)
         }
     }
 
-    static async register (req,res){
+    static async register (req,res,next){
         try {
             const {username,password}= req.body
             let data= await User.create({username,password,role: 'Customer'})
@@ -34,11 +34,11 @@ class Controller{
                 username: data.username
             })
         } catch (error) {
-            console.log(error);
+            next(error)
         }
     }
 
-    static async registerAdmin (req,res){
+    static async registerAdmin (req,res,next){
         try {
             const {username,password}= req.body
             let data= await User.create({username,password,role: 'Admin'})
@@ -47,7 +47,7 @@ class Controller{
                 username: data.username
             })
         } catch (error) {
-            console.log(error);
+            next(error)
         }
     }
 }

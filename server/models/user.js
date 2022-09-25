@@ -12,11 +12,31 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.Product)
+      this.hasMany(models.Cart)
     }
   }
   User.init({
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
+    username: {type: DataTypes.STRING,
+    allowNull:false,
+  validate:{
+    notNull:{
+      msg: 'username is required'
+    },
+    notEmpty:{
+      msg: 'username is required'
+    }
+  }},
+    password: {type: DataTypes.STRING,
+    allowNull:false,
+  validate:{
+    notNull:{
+      msg: 'password is required'
+    },
+    notEmpty:{
+      msg: 'password is required'
+    }
+  }},
     role: DataTypes.STRING
   }, {
     sequelize,
