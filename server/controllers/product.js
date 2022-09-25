@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const {Product} =require('../models');
+const {Product,User,Category} =require('../models');
 class Controller{
 
     static async showAllProduct(req,res,next){
@@ -9,7 +9,7 @@ class Controller{
                 name:{
                     [Op.iLike]: `%${search}%`
                 }
-            }}
+            },include: [{model: User,attributes:{exclude:['password']}},{model: Category},]}
 
             if(category){
                 where.where.CategoryId= category
@@ -20,7 +20,7 @@ class Controller{
             res.status(200).json(data)
 
         } catch (error) {
-            console.log(error);
+            next(error);
         }
     }
 
@@ -30,7 +30,7 @@ class Controller{
             let data= await Product.create({name,productImage,description,stock,price,UserId: req.user.id,CategoryId})
             res.status(201).json(data)
         } catch (error) {
-            console.log(error);
+            next(error);
         }
     }
 
@@ -43,29 +43,31 @@ class Controller{
                 message: `Edited Product with id ${id}`
             })
         } catch (error) {
-            console.log(error);
+            next(error);
         }
     }
 
     static async detailProduct(req,res,next){
         try {
             const{id}= req.params
-            let data= await Product.findOne({where:{id:id}})
+            let data= await Product.findOne({where:{id:id},include:[{model:User,attributes: {exclude: ['password']}},{model: Category}]})
+            if(!data)throw{code: 2}
             res.status(200).json(data)
         } catch (error) {
-            console.log(error);
+            next(error);
         }
     }
 
     static async deleteProduct(req,res,next){
         try {
             const{id}= req.params
-            await Product.destroy({where:{id:id}})
+            let data= await Product.destroy({where:{id:id}})
+            if(!data)throw{code: 2}
             res.status(200).json({
                 message: `Deleted Product with id ${id}`
             })
         } catch (error) {
-            console.log(error);
+            next(error);
         }
     }
 

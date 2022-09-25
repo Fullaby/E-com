@@ -8,9 +8,9 @@ class Controller{
             let data= await User.findOne({where: {username}})
             let checkPass= comparePass(password, data.password)
             console.log(data);
-            // if(!checkPass)throw{code: 1}
-            // if(!username || !password)throw{code: 1}
-            // if(!data)throw{code:1}
+            if(!checkPass)throw{code: 1}
+            if(!username || !password || password == null)throw{code: 1}
+            if(!data)throw{code:1}
 
             const payload= {
                 id: data.id
