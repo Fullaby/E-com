@@ -19,8 +19,9 @@ export default function NavBar(){
                 <ul className="flex justify-between text-white">
                     <li className="pt-2"><img src="https://www.freepnglogos.com/uploads/logo-tokopedia-png/tokopedia-apa-itu-startup-pengertian-cara-memulai-dan-1.png" alt="" style={{width: '200px'}}/></li>
                     <li className="pt-6 flex flex-row">
-                        <form onSubmit={handleSearch}>
-                       <input onChange={inputSearch} className="pl-2 rounded-l-lg border-2 focus:outline-none focus:border-green-400" type='text' placeholder="Search item..." style={{height: '30px', width:'500px'}}/><button><img src="https://www.freepnglogos.com/uploads/search-png/search-file-vector-icon-svg-wikimedia-commons-25.png" className="bg-zinc-400 rounded-r pl-1 pr-1 pt-1 pb-1 mb-5" alt="" style={{width: '30px', height: '30px'}}/></button>
+                        <form onSubmit={handleSearch} className='relative'>
+                       <input onChange={inputSearch} className="pl-2 rounded-l-lg border-2 focus:outline-none focus:border-green-400" type='text' placeholder="Search item..." style={{height: '30px', width:'500px'}}/>
+                       <button><img src="https://www.freepnglogos.com/uploads/search-png/search-file-vector-icon-svg-wikimedia-commons-25.png" className="bg-zinc-400 rounded-r pl-1 pr-1 pt-1 pb-1 mb-5" alt="" style={{width: '30px', height: '30px'}}/></button>
                         </form>
                     </li>
                     <li className="pt-6 flex flex-row">
