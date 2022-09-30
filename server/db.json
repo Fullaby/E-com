@@ -1,0 +1,33 @@
+{
+    "Users": [
+        {
+            "username": "steven",
+            "password": "12345",
+            "role": "Admin"
+        },
+        {
+            "username": "leonardo",
+            "password": "12345",
+            "role": "Customer"
+        }
+    ],
+
+    "Products": [
+        {
+            "name": "Jordan 1",
+            "productImage":"",
+            "description": "",
+            "price": 2000,
+            "UserId": 1,
+            "stock": 1,
+            "CategoryId": 1
+
+        }
+    ],
+
+    "Categories": [
+        {
+            "name": "Food"
+        }
+    ]
+}
