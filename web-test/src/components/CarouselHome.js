@@ -1,37 +1,26 @@
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 export default function CarouselHome(){
     return(
-        <div id="indicators-carousel" class="relative" data-carousel="static">
-
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        
-        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-            <img src="https://mediapublica.co/wp-content/uploads/2015/01/Mr_beans_holiday_ver2.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-        
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://assets.kompasiana.com/items/album/2021/04/27/mr-bean-3db451-6087db94d541df174362e672.jpg?t=o&v=770" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
-        </div>
-  
-    </div>
-    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-    </div>
-    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-            <span class="sr-only">Previous</span>
-        </span>
-    </button>
-    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            <span class="sr-only">Next</span>
-        </span>
-    </button>
-</div>
+        <Carousel
+        autoPlay={true}
+        infiniteLoop={true}
+        interval= {4000}
+        width= {'500px'}
+        showThumbs={false}
+        showStatus={false}
+        showIndicators={false}
+        stopOnHover={false}
+        >
+                <div>
+                    <img src="https://cdn1-production-images-kly.akamaized.net/CKCWRZD9miCtrSwopdgnPUcRSIk=/1200x900/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/840223/original/012309700_1427772429-rowan-atkinson-150331.jpg" alt='' />
+                </div>
+                <div>
+                    <img src="https://cdn1-production-images-kly.akamaized.net/7QPUg6195alNHO3uk_a8OrG5RAc=/1200x675/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/1090596/original/6be0635ea79ca981f7797f84fbac3c1ay_wide-bfaafef77349a2c9101d90e3eabe182a7fd1875f.jpg" alt='' />
+                </div>
+                <div>
+                    <img src="assets/3.jpeg" />
+                </div>
+            </Carousel>
     )
 }
