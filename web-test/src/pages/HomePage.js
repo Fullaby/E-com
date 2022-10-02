@@ -1,3 +1,4 @@
+import CardItem from "../components/CardItem";
 import CarouselHome from "../components/CarouselHome";
 import NavBar from "../components/NavBar";
 
@@ -8,8 +9,11 @@ export default function HomePage(){
             <div className="flex justify-center pt-10">
             <CarouselHome/>
             </div>
+            <div className="p-10">
+            <h1>Product</h1>
             <div>
-            <h1>test</h1>
+                <CardItem/>
+            </div>
             </div>
         </div>
     )
